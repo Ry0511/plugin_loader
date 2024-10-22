@@ -20,7 +20,7 @@ calling `LoadLibrary` it was still copied.
 vendor/dxwrappers is from [DirectX-Wrappers](https://github.com/elishacloud/DirectX-Wrappers)
 and has been modified. Where modifications are made comments are present using the format:
 'NOTE: Modified by plugin_loader; -Ry (2024/10/22)'. The license can be found at
-[LICENSE](./vendor/dxwrapper/License.txt)
+[LICENSE](vendor/dxwrappers/License.txt)
 
 Full changes are:
 
