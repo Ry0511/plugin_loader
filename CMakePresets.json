@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "_output_bin",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/out/bin/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}"
+    },
+    {
+      "name": "_release",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "_debug",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "_x86",
+      "hidden": true,
+      "architecture": {
+        "value": "Win32",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "_x64",
+      "hidden": true,
+      "architecture": {
+        "value": "Win64",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "_base",
+      "hidden": true,
+      "inherits": [
+        "_output_bin"
+      ]
+    },
+    {
+      "name": "_msvc",
+      "hidden": true,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe"
+      },
+      "generator": "Ninja"
+    },
+    {
+      "name": "msvc-x86-debug",
+      "inherits": [
+        "_base",
+        "_debug",
+        "_msvc",
+        "_x86"
+      ]
+    },
+    {
+      "name": "msvc-x86-release",
+      "inherits": [
+        "_base",
+        "_release",
+        "_msvc",
+        "_x86"
+      ]
+    },
+    {
+      "name": "msvc-x64-debug",
+      "inherits": [
+        "_base",
+        "_debug",
+        "_msvc",
+        "_x64"
+      ]
+    },
+    {
+      "name": "msvc-x64-release",
+      "inherits": [
+        "_base",
+        "_release",
+        "_msvc",
+        "_x64"
+      ]
+    }
+  ]
+}
